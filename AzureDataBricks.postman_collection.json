@@ -1,0 +1,652 @@
+{
+	"info": {
+		"_postman_id": "21440801-d0ea-4c6d-b110-1baecba78a17",
+		"name": "AzureDataBricks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Jobs API",
+			"item": [
+				{
+					"name": "Create Execution Context",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/1.2/contexts/create",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"1.2",
+								"contexts",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Job Run By Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/get?run_id=5",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"runs",
+								"get"
+							],
+							"query": [
+								{
+									"key": "run_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "b2a2ef90-4e3c-4ace-a6e9-c664d45fb667",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "315f7c37-9f62-453e-9a40-1f36119ae4bd",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Get Databricks AuthTokens",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/token/list",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"token",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cluster API",
+			"item": [
+				{
+					"name": "List Clusters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/list",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"clusters",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Node Types",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/list-node-types",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"clusters",
+								"list-node-types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Spark Versions",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/spark-versions",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"clusters",
+								"spark-versions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ClusterById",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/get?cluster_id={{DevClusterId}}",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"clusters",
+								"get"
+							],
+							"query": [
+								{
+									"key": "cluster_id",
+									"value": "{{DevClusterId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ClusterEventsByClusterId",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cluster_id",
+									"value": "{{DevClusterId}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/events",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"clusters",
+								"events"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Start Cluster",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cluster_id",
+									"value": "{{DevClusterId}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/start",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"clusters",
+								"start"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bounce Cluster",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cluster_id",
+									"value": "{{DevClusterId}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/restart",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"clusters",
+								"restart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Stop Cluster (delete/terminate)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "cluster_id",
+									"value": "{{DevClusterId}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/delete",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"clusters",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "DBFS API",
+			"item": [
+				{
+					"name": "List Files in Path",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/list?path=/",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"dbfs",
+								"list"
+							],
+							"query": [
+								{
+									"key": "path",
+									"value": "/"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Files in FileStore",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{authToken}}",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/list?path=/",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"dbfs",
+								"list"
+							],
+							"query": [
+								{
+									"key": "path",
+									"value": "/"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Groups API",
+			"item": [
+				{
+					"name": "List Security Groups",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/list",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"groups",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Members of a Security Group",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/list",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"groups",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Member to Security Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_name",
+									"value": "user@domain.com",
+									"type": "text"
+								},
+								{
+									"key": "parent_name",
+									"value": "admins",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/add-member",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"groups",
+								"add-member"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Security Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "group_name",
+									"value": "consumers",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/create",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"groups",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
