@@ -9,7 +9,267 @@
 			"name": "Jobs API",
 			"item": [
 				{
-					"name": "Create Execution Context",
+					"name": "Version1.2",
+					"item": [
+						{
+							"name": "Create Execution Context",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"type": "text",
+										"value": "Bearer {{authToken}}"
+									},
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"body": {},
+								"url": {
+									"raw": "https://{{ADBAccountURL}}/api/1.2/contexts/create",
+									"protocol": "https",
+									"host": [
+										"{{ADBAccountURL}}"
+									],
+									"path": [
+										"api",
+										"1.2",
+										"contexts",
+										"create"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Create Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"name\": \"MyJarTesting2\",\r\n\t\"new_cluster\": {\r\n\t\t\"spark_version\": \"4.3.x-scala2.11\",\r\n\t\t\"node_type_id\": \"Standard_F4s_v2\",\r\n\t\t\"enable_elastic_disk\": false,\r\n\t\t\"num_workers\": 2\r\n\t},\r\n\t\"email_notifications\": { \"on_start\": [\r\n                \"{{NotificationEmail}}\"\r\n            ] },\r\n\t\"timeout_seconds\": 3600,\r\n\t\"max_retries\": 1,\r\n\t\"spark_jar_task\": {\r\n\t\t\"jar_uri\": \"a713759e_2b71_4b63_9712_d4834918ceeb-SBTExampleProject.jar\",\r\n\t\t\"main_class_name\": \"Main\",\r\n\t\t\"run_as_repl\": true\r\n\t}\r\n }"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/create",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "List Jobs",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/list",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Job",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"job_id\": 6\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/delete",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Job By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/get?job_id=4",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"get"
+							],
+							"query": [
+								{
+									"key": "job_id",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Job By Id",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"job_id\": 4,\r\n\t\"new_settings\": {\r\n\t\t\"name\": \"MyJarTestingV3\",\r\n\t\t\"new_cluster\": {\r\n\t\t\t\"spark_version\": \"4.3.x-scala2.11\",\r\n\t\t\t\"node_type_id\": \"Standard_F4s_v2\",\r\n\t\t\t\"enable_elastic_disk\": false,\r\n\t\t\t\"num_workers\": 2\r\n\t\t},\r\n\t\t\"email_notifications\": { \"on_start\": [\r\n\t                \"{{NotificationEmail}}\"\r\n\t            ] },\r\n\t\t\"timeout_seconds\": 3600,\r\n\t\t\"max_retries\": 1,\r\n\t\t\"spark_jar_task\": {\r\n\t\t\t\"jar_uri\": \"a713759e_2b71_4b63_9712_d4834918ceeb-SBTExampleProject.jar\",\r\n\t\t\t\"main_class_name\": \"Main\",\r\n\t\t\t\"run_as_repl\": true\r\n\t\t}\r\n\t}\r\n }"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/reset",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"reset"
+							]
+						},
+						"description": "Overwrites the settings of a job with the provided settings."
+					},
+					"response": []
+				},
+				{
+					"name": "Run Now",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"job_id\": 4,\r\n  \"jar_params\": [\"param1\", \"param2\"]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/run-now",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"run-now"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Submit",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -25,28 +285,30 @@
 								"type": "text"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"run_name\": \"Luv u one time!\",\r\n\t\"new_cluster\": {\r\n\t\t\"spark_version\": \"4.3.x-scala2.11\",\r\n\t\t\"node_type_id\": \"Standard_F4s_v2\",\r\n\t\t\"num_workers\": 2\r\n\t},\r\n\t\"email_notifications\": { \"on_start\": [\r\n                \"{{NotificationEmail}}\"\r\n            ] },\r\n\t\"timeout_seconds\": 3600,\r\n\t\"spark_jar_task\": {\r\n\t\t\"jar_uri\": \"a713759e_2b71_4b63_9712_d4834918ceeb-SBTExampleProject.jar\",\r\n\t\t\"main_class_name\": \"Main\",\r\n\t\t\"run_as_repl\": true\r\n\t}\r\n}"
+						},
 						"url": {
-							"raw": "https://{{ADBAccountURL}}/api/1.2/contexts/create",
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/submit",
 							"protocol": "https",
 							"host": [
 								"{{ADBAccountURL}}"
 							],
 							"path": [
 								"api",
-								"1.2",
-								"contexts",
-								"create"
+								"2.0",
+								"jobs",
+								"runs",
+								"submit"
 							]
-						}
+						},
+						"description": "Submit a one-time run with the provided settings. This endpoint doesn’t require a Databricks job to be created. You can directly submit your workload. Runs submitted via this endpoint don’t show up in the UI. Once the run is submitted, you can use the jobs/runs/get API to check the run state."
 					},
 					"response": []
 				},
 				{
-					"name": "Job Run By Id",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
+					"name": "List Runs",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -56,7 +318,52 @@
 								"value": "Bearer {{authToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/list?limit=5&active_only=false",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"runs",
+								"list"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "active_only",
+									"value": "false"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Job Run By Id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/get?run_id=5",
 							"protocol": "https",
@@ -75,6 +382,150 @@
 									"key": "run_id",
 									"value": "5"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Export Run Task (notebook only)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/export?run_id=5&views_to_export=ALL",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"runs",
+								"export"
+							],
+							"query": [
+								{
+									"key": "run_id",
+									"value": "5"
+								},
+								{
+									"key": "views_to_export",
+									"value": "ALL"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Run",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"run_id\": 4\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/cancel",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"runs",
+								"cancel"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run Output",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/get-output?run_id=5",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"runs",
+								"get-output"
+							],
+							"query": [
+								{
+									"key": "run_id",
+									"value": "5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Run Output",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"run_id\": 3\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/delete",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"runs",
+								"delete"
 							]
 						}
 					},
@@ -428,9 +879,6 @@
 			"item": [
 				{
 					"name": "List Files in Path",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -440,7 +888,10 @@
 								"type": "text"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/list?path=/",
 							"protocol": "https",
@@ -465,9 +916,6 @@
 				},
 				{
 					"name": "List Files in FileStore",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -477,9 +925,12 @@
 								"type": "text"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
-							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/list?path=/",
+							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/list?path=/FileStore/jars",
 							"protocol": "https",
 							"host": [
 								"{{ADBAccountURL}}"
@@ -493,7 +944,7 @@
 							"query": [
 								{
 									"key": "path",
-									"value": "/"
+									"value": "/FileStore/jars"
 								}
 							]
 						}
@@ -507,9 +958,6 @@
 			"item": [
 				{
 					"name": "List Security Groups",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -519,7 +967,10 @@
 								"value": "Bearer {{authToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/list",
 							"protocol": "https",
@@ -538,9 +989,6 @@
 				},
 				{
 					"name": "List Members of a Security Group",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -550,7 +998,10 @@
 								"value": "Bearer {{authToken}}"
 							}
 						],
-						"body": {},
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/list",
 							"protocol": "https",
