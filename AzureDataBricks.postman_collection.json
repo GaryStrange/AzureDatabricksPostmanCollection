@@ -703,7 +703,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/get?cluster_id={{DevClusterId}}",
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/get?cluster_id={{ClusterId}}",
 							"protocol": "https",
 							"host": [
 								"{{ADBAccountURL}}"
@@ -717,7 +717,7 @@
 							"query": [
 								{
 									"key": "cluster_id",
-									"value": "{{DevClusterId}}"
+									"value": "{{ClusterId}}"
 								}
 							]
 						}
@@ -740,7 +740,7 @@
 							"formdata": [
 								{
 									"key": "cluster_id",
-									"value": "{{DevClusterId}}",
+									"value": "{{ClusterId}}",
 									"type": "text"
 								}
 							]
@@ -777,7 +777,7 @@
 							"formdata": [
 								{
 									"key": "cluster_id",
-									"value": "{{DevClusterId}}",
+									"value": "{{ClusterId}}",
 									"type": "text"
 								}
 							]
@@ -814,7 +814,7 @@
 							"formdata": [
 								{
 									"key": "cluster_id",
-									"value": "{{DevClusterId}}",
+									"value": "{{ClusterId}}",
 									"type": "text"
 								}
 							]
@@ -851,7 +851,7 @@
 							"formdata": [
 								{
 									"key": "cluster_id",
-									"value": "{{DevClusterId}}",
+									"value": "{{ClusterId}}",
 									"type": "text"
 								}
 							]
