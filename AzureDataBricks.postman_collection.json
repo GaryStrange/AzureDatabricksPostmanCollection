@@ -9,55 +9,10 @@
 			"name": "Jobs API",
 			"item": [
 				{
-					"name": "Version1.2",
-					"item": [
-						{
-							"name": "Create Execution Context",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Authorization",
-										"type": "text",
-										"value": "Bearer {{authToken}}"
-									},
-									{
-										"key": "Content-Type",
-										"name": "Content-Type",
-										"value": "application/x-www-form-urlencoded",
-										"type": "text"
-									}
-								],
-								"body": {},
-								"url": {
-									"raw": "https://{{ADBAccountURL}}/api/1.2/contexts/create",
-									"protocol": "https",
-									"host": [
-										"{{ADBAccountURL}}"
-									],
-									"path": [
-										"api",
-										"1.2",
-										"contexts",
-										"create"
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"_postman_isSubFolder": true
-				},
-				{
 					"name": "Create Job",
 					"request": {
 						"method": "POST",
 						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							},
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
@@ -92,13 +47,7 @@
 					},
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -124,11 +73,6 @@
 					"request": {
 						"method": "POST",
 						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							},
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
@@ -160,13 +104,7 @@
 					"name": "Get Job By Id",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -198,11 +136,6 @@
 					"request": {
 						"method": "POST",
 						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							},
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
@@ -237,11 +170,6 @@
 						"method": "POST",
 						"header": [
 							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							},
-							{
 								"key": "Content-Type",
 								"name": "Content-Type",
 								"value": "application/json",
@@ -273,11 +201,6 @@
 					"request": {
 						"method": "POST",
 						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							},
 							{
 								"key": "Content-Type",
 								"name": "Content-Type",
@@ -311,13 +234,7 @@
 					"name": "List Runs",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -353,13 +270,7 @@
 					"name": "Job Run By Id",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -391,13 +302,7 @@
 					"name": "Export Run Task (notebook only)",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -433,13 +338,7 @@
 					"name": "Cancel Run",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"run_id\": 4\r\n}"
@@ -465,13 +364,7 @@
 					"name": "Run Output",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -503,13 +396,7 @@
 					"name": "Delete Run Output",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": "{\r\n  \"run_id\": 3\r\n}"
@@ -562,13 +449,7 @@
 					"name": "Get Databricks AuthTokens",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -598,13 +479,7 @@
 					"name": "List Clusters",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -629,13 +504,7 @@
 					"name": "List Node Types",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -660,13 +529,7 @@
 					"name": "Spark Versions",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -691,13 +554,7 @@
 					"name": "ClusterById",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -728,13 +585,7 @@
 					"name": "ClusterEventsByClusterId",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -765,13 +616,7 @@
 					"name": "Start Cluster",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -802,13 +647,7 @@
 					"name": "Bounce Cluster",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -839,13 +678,7 @@
 					"name": "Stop Cluster (delete/terminate)",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -881,13 +714,7 @@
 					"name": "List Files in Path",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -918,13 +745,7 @@
 					"name": "List Files in FileStore",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{authToken}}",
-								"type": "text"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -950,6 +771,140 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Delete File or Directory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"path\":\"/\",\n\t\"recursive\":false\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/delete",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"dbfs",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Status",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/get-status?path=/",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"dbfs",
+								"get-status"
+							],
+							"query": [
+								{
+									"key": "path",
+									"value": "/"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make Directory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"path\":\"/foo/\"\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/mkdirs",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"dbfs",
+								"mkdirs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Move Directory",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"source_path\":\"/foo/\",\n\t\"destination_path\":\"/FileStore/jars/foo/\"\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/move",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"dbfs",
+								"move"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -960,13 +915,7 @@
 					"name": "List Security Groups",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
@@ -991,19 +940,13 @@
 					"name": "List Members of a Security Group",
 					"request": {
 						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "raw",
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/list",
+							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/list-members?group_name={{securiyGroupName}}",
 							"protocol": "https",
 							"host": [
 								"{{ADBAccountURL}}"
@@ -1012,7 +955,13 @@
 								"api",
 								"2.0",
 								"groups",
-								"list"
+								"list-members"
+							],
+							"query": [
+								{
+									"key": "group_name",
+									"value": "{{securiyGroupName}}"
+								}
 							]
 						}
 					},
@@ -1022,13 +971,7 @@
 					"name": "Add Member to Security Group",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -1064,13 +1007,7 @@
 					"name": "Create New Security Group",
 					"request": {
 						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"type": "text",
-								"value": "Bearer {{authToken}}"
-							}
-						],
+						"header": [],
 						"body": {
 							"mode": "formdata",
 							"formdata": [
@@ -1098,6 +1035,594 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Libraries API",
+			"item": [
+				{
+					"name": "All Cluster Statues",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/libraries/all-cluster-statuses",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"libraries",
+								"all-cluster-statuses"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cluster Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/libraries/cluster-status?cluster_id={{ClusterId}}",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"libraries",
+								"cluster-status"
+							],
+							"query": [
+								{
+									"key": "cluster_id",
+									"value": "{{ClusterId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Install Library",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cluster_id\": \"{{ClusterId}}\",\r\n  \"libraries\": [\r\n    {\r\n      \"jar\": \"dbfs:/mnt/libraries/library.jar\"\r\n    },\r\n    {\r\n      \"egg\": \"dbfs:/mnt/libraries/library.egg\"\r\n    },\r\n    {\r\n      \"whl\": \"dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl\"\r\n    },\r\n    {\r\n      \"whl\": \"dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip\"\r\n    },\r\n    {\r\n      \"maven\": {\r\n        \"coordinates\": \"org.jsoup:jsoup:1.7.2\",\r\n        \"exclusions\": [\"slf4j:slf4j\"]\r\n      }\r\n    },\r\n    {\r\n      \"pypi\": {\r\n        \"package\": \"simplejson\",\r\n        \"repo\": \"http://my-pypi-mirror.com\"\r\n      }\r\n    },\r\n    {\r\n      \"cran\": {\r\n        \"package\": \"ada\",\r\n        \"repo\": \"http://cran.us.r-project.org\"\r\n      }\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/libraries/install",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"libraries",
+								"install"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Uninstall Library",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cluster_id\": \"{{ClusterId}}\",\r\n  \"libraries\": [\r\n    {\r\n      \"jar\": \"dbfs:/mnt/libraries/library.jar\"\r\n    },\r\n    {\r\n      \"cran\": \"ada\"\r\n    }\r\n  ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/libraries/uninstall",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"libraries",
+								"uninstall"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "The Libraries API allows you to install and uninstall libraries and get the status of libraries on a cluster via the API.",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{authToken}}",
+						"type": "string"
+					}
+				]
+			}
+		},
+		{
+			"name": "SCIM API (Preview)",
+			"item": [
+				{
+					"name": "Get Users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Users",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by Id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Users/4898975118572329",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Users",
+								"4898975118572329"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/scim+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"schemas\":[\r\n      \"urn:ietf:params:scim:schemas:core:2.0:User\"\r\n   ],\r\n   \"userName\":\"example@databricks.com\",\r\n   \"groups\":[\r\n      {\r\n         \"value\":\"123456\"\r\n      }\r\n   ],\r\n   \"entitlements\":[\r\n      {\r\n         \"value\":\"allow-cluster-create\"\r\n      }\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Users",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User by ID (PATCH)",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"schemas\":[\r\n      \"urn:ietf:params:scim:api:messages:2.0:PatchOp\"\r\n   ],\r\n   \"Operations\":[\r\n      {\r\n         \"op\":\"add\",\r\n         \"path\":\"entitlements\",\r\n         \"value\":[\r\n            {\r\n               \"value\":\"allow-cluster-create\"\r\n            }\r\n         ]\r\n      }\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Users/8026243065818586",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Users",
+								"8026243065818586"
+							]
+						},
+						"description": "Update a user resource with operations on specific attributes, except those that are immutable. The PATCH method is recommended over the PUT method for setting or updating user entitlements.\r\n\r\nRequest parameters follow the standard SCIM 2.0 protocol and depend on the value of the schemas attribute.\r\n\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User by ID (PUT)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"schemas\":[\r\n      \"urn:ietf:params:scim:schemas:core:2.0:User\"\r\n   ],\r\n   \"userName\":\"example@databricks.com\",\r\n   \"entitlements\":[\r\n      {\r\n         \"value\":\"allow-cluster-create\"\r\n      }\r\n   ],\r\n   \"groups\":[\r\n      {\r\n         \"value\":\"4308149557659445\"\r\n      }\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Users/8026243065818586",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Users",
+								"8026243065818586"
+							]
+						},
+						"description": "Overwrite the user resource across multiple attributes, except those that are immutable.\r\n\r\nRequest must include the schemas attribute, set to urn:ietf:params:scim:schemas:core:2.0:User.\r\n\r\nNote\r\n\r\nThe PATCH method is recommended over the PUT method for setting or updating user entitlements.\r\n\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Users/8026243065818586",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Users",
+								"8026243065818586"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Groups",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Groups",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Groups Apply Filter",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Groups?filter=displayName+sw+adm",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Groups"
+							],
+							"query": [
+								{
+									"key": "filter",
+									"value": "displayName+sw+adm"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Group by ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Groups/270049623502135",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Groups",
+								"270049623502135"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Group",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"schemas\":[\r\n      \"urn:ietf:params:scim:schemas:core:2.0:Group\"\r\n   ],\r\n   \"displayName\":\"newgroup\"\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Groups",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Groups"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Group",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \"schemas\":[\r\n      \"urn:ietf:params:scim:api:messages:2.0:PatchOp\"\r\n   ],\r\n   \"Operations\":[\r\n      {\r\n         \"op\":\"add\",\r\n         \"value\":{\r\n            \"members\":[\r\n               {\r\n                  \"value\":\"270049623502135\"\r\n               }\r\n            ]\r\n         }\r\n      }\r\n   ]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Groups/8980268131784531",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Groups",
+								"8980268131784531"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Group Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/scim+json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Groups/8980268131784531",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"preview",
+								"scim",
+								"v2",
+								"Groups",
+								"8980268131784531"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{authToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "5176c05c-b31d-4252-8511-a22072f5cc2c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "725b876b-a4f1-4a54-b6dd-59cfcef5178c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
