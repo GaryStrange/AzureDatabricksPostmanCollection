@@ -9,6 +9,40 @@
 			"name": "Jobs API",
 			"item": [
 				{
+					"name": "Create Execution Context",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{authToken}}"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/1.2/contexts/create",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"1.2",
+								"contexts",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create Job",
 					"request": {
 						"method": "POST",
@@ -35,6 +69,38 @@
 								"2.0",
 								"jobs",
 								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Run Now",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"job_id\": 4,\r\n  \"jar_params\": [\"param1\", \"param2\"]\r\n}"
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/run-now",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"jobs",
+								"run-now"
 							]
 						}
 					},
@@ -165,23 +231,16 @@
 					"response": []
 				},
 				{
-					"name": "Run Now",
+					"name": "List Runs",
 					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"name": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
+						"method": "GET",
+						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"job_id\": 4,\r\n  \"jar_params\": [\"param1\", \"param2\"]\r\n}"
+							"raw": ""
 						},
 						"url": {
-							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/run-now",
+							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/list?limit=5&active_only=false",
 							"protocol": "https",
 							"host": [
 								"{{ADBAccountURL}}"
@@ -190,7 +249,18 @@
 								"api",
 								"2.0",
 								"jobs",
-								"run-now"
+								"runs",
+								"list"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "5"
+								},
+								{
+									"key": "active_only",
+									"value": "false"
+								}
 							]
 						}
 					},
@@ -227,42 +297,6 @@
 							]
 						},
 						"description": "Submit a one-time run with the provided settings. This endpoint doesn’t require a Databricks job to be created. You can directly submit your workload. Runs submitted via this endpoint don’t show up in the UI. Once the run is submitted, you can use the jobs/runs/get API to check the run state."
-					},
-					"response": []
-				},
-				{
-					"name": "List Runs",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/list?limit=5&active_only=false",
-							"protocol": "https",
-							"host": [
-								"{{ADBAccountURL}}"
-							],
-							"path": [
-								"api",
-								"2.0",
-								"jobs",
-								"runs",
-								"list"
-							],
-							"query": [
-								{
-									"key": "limit",
-									"value": "5"
-								},
-								{
-									"key": "active_only",
-									"value": "false"
-								}
-							]
-						}
 					},
 					"response": []
 				},
