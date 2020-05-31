@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "21440801-d0ea-4c6d-b110-1baecba78a17",
+		"_postman_id": "8d2589a3-24af-4b2c-ad6a-6ae3f68a9bca",
 		"name": "AzureDataBricks",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -25,7 +25,6 @@
 								"type": "text"
 							}
 						],
-						"body": {},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/1.2/contexts/create",
 							"protocol": "https",
@@ -171,10 +170,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/get?job_id=4",
 							"protocol": "https",
@@ -235,10 +230,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/list?limit=5&active_only=false",
 							"protocol": "https",
@@ -305,10 +296,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/get?run_id=5",
 							"protocol": "https",
@@ -337,10 +324,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/export?run_id=5&views_to_export=ALL",
 							"protocol": "https",
@@ -399,10 +382,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/jobs/runs/get-output?run_id=5",
 							"protocol": "https",
@@ -457,7 +436,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b2a2ef90-4e3c-4ace-a6e9-c664d45fb667",
+						"id": "f5322e67-7525-4012-b3e9-9d20c592dcab",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -467,14 +446,15 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "315f7c37-9f62-453e-9a40-1f36119ae4bd",
+						"id": "fefd61a1-634d-4b15-8bcd-d3ca2a92a142",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Authentication",
@@ -484,10 +464,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/token/list",
 							"protocol": "https",
@@ -504,7 +480,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Cluster API",
@@ -514,10 +491,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/list",
 							"protocol": "https",
@@ -539,10 +512,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/list-node-types",
 							"protocol": "https",
@@ -564,10 +533,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/spark-versions",
 							"protocol": "https",
@@ -589,10 +554,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/get?cluster_id={{ClusterId}}",
 							"protocol": "https",
@@ -610,6 +571,36 @@
 									"key": "cluster_id",
 									"value": "{{ClusterId}}"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Cluster",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"cluster_name\": \"autoscaling-cluster\",\r\n  \"spark_version\": \"6.4.x-scala2.11\",\r\n  \"node_type_id\": \"Standard_F4s\",\r\n  \"autoscale\" : {\r\n    \"min_workers\": 2,\r\n    \"max_workers\": 3\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{ADBAccountURL}}/api/2.0/clusters/create",
+							"protocol": "https",
+							"host": [
+								"{{ADBAccountURL}}"
+							],
+							"path": [
+								"api",
+								"2.0",
+								"clusters",
+								"create"
 							]
 						}
 					},
@@ -739,7 +730,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "DBFS API",
@@ -749,10 +741,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/list?path=/",
 							"protocol": "https",
@@ -780,10 +768,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/list?path=/FileStore/jars",
 							"protocol": "https",
@@ -850,10 +834,6 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/dbfs/get-status?path=/",
 							"protocol": "https",
@@ -940,7 +920,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Groups API",
@@ -950,10 +931,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/list",
 							"protocol": "https",
@@ -975,10 +952,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/groups/list-members?group_name={{securiyGroupName}}",
 							"protocol": "https",
@@ -1068,7 +1041,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Libraries API",
@@ -1078,10 +1052,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/libraries/all-cluster-statuses",
 							"protocol": "https",
@@ -1103,10 +1073,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/libraries/cluster-status?cluster_id={{ClusterId}}",
 							"protocol": "https",
@@ -1204,7 +1170,8 @@
 						"type": "string"
 					}
 				]
-			}
+			},
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "SCIM API (Preview)",
@@ -1214,10 +1181,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Users",
 							"protocol": "https",
@@ -1241,10 +1204,6 @@
 					"request": {
 						"method": "GET",
 						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Users/4898975118572329",
 							"protocol": "https",
@@ -1417,10 +1376,6 @@
 								"value": "application/scim+json"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "https://{{ADBAccountURL}}/api/2.0/preview/scim/v2/Groups",
 							"protocol": "https",
@@ -1624,7 +1579,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"auth": {
@@ -1641,7 +1597,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5176c05c-b31d-4252-8511-a22072f5cc2c",
+				"id": "dc71faca-466f-4507-93e8-d7b39b7ea79d",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1651,12 +1607,13 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "725b876b-a4f1-4a54-b6dd-59cfcef5178c",
+				"id": "56f9b02b-8469-4068-a9f6-ac2fe41bd137",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
